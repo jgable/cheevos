@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="{{asset '/css/font-awesome.css'}}">
     <link rel="stylesheet" href="{{asset '/css/site.css'}}" />
 </head>
 <body class="{{bodyClass}}">

@@ -1,3 +1,1 @@
-module.exports = function (grunt) {
-	require('load-grunt-config')(grunt);
-};
+module.exports = require('load-grunt-config');

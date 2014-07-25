@@ -7,6 +7,11 @@ module.exports = {
             'build/js/jquery.min.map': 'client/components/jquery/dist/jquery.min.map'
         }]
     },
+    styles: {
+        files: [{
+            '.grunt/build/css/font-awesome.css': 'client/components/font-awesome/css/font-awesome.css'
+        }]
+    },
     images: {
         files: [{
             expand: true,

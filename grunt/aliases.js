@@ -1,6 +1,6 @@
 module.exports = {
     // CSS related tasks
-    'styles': ['less'],
+    'styles': ['less', 'copy:styles'],
 
     // JS related tasks
     'scripts': ['transpile:app', 'concat:swagger', 'concat:vendor', 'concat_sourcemap:app'],
