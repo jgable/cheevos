@@ -8,8 +8,24 @@ Router.map(function () {
     this.route('register');
     this.route('forgotpassword');
     this.route('forgotpassword/reset', { path: '/forgotpassword/reset/:resetKey' });
-    this.route('home');
     this.route('user');
+
+    this.resource('organizations', function () {
+        this.resource('organization', { path: '/organizations/:organization_id' }, function () {
+            // Organizations contain achievements and people
+            this.resource('achievements', { path: '/organizations/:organization_id/achievements' }, function () {
+                this.route('addAchievement', { path: '/organizations/:organization_id/achievements/create' });
+                this.route('achievement', { path: '/organizations/:organization_id/achievements/:achievement_id' });
+                this.route('editAchievement', { path: '/organizations/:organization_id/achievements/:achievement_id/edit' });
+            });
+            this.resource('people', { path: '/organizations/:organization_id/people' }, function () {
+                this.route('addPerson', { path: '/organizations/:organization_id/people/create' });
+                this.route('person', { path: '/organizations/:organization_id/people/:person_id' });
+                this.route('editPerson', { path: '/organizations/:organization_id/people/:person_id/edit' });
+            });
+        });
+    });
+    
 });
 
 export default Router;
