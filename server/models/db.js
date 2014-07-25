@@ -26,6 +26,10 @@ module.exports = {
             });
     },
     sync: function (done) {
+        /* jshint unused: false */
+        // Preload models with relationships
+        var models = require('./index');
+
         db.sync()
             .complete(function (err) {
                 if (err) {

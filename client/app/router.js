@@ -23,6 +23,9 @@ Router.map(function () {
                 this.route('person', { path: '/organizations/:organization_id/people/:person_id' });
                 this.route('editPerson', { path: '/organizations/:organization_id/people/:person_id/edit' });
             });
+
+            this.route('addOrganization', { path: '/organizations/:organization_id/create' });
+            this.route('editOrganization', { path: '/organizations/:organization_id/edit' });
         });
     });
     
