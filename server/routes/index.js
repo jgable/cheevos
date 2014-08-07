@@ -11,7 +11,19 @@ module.exports = function (app) {
             '/register',
             '/forgotpassword',
             '/forgotpassword/reset/:resetKey',
-            '/home'
+            
+            '/organizations',
+            '/organizations/create',
+            '/organizations/:organizationId',
+            '/organizations/:organizationId/edit',
+            '/organizations/:organizationId/achievements',
+            '/organizations/:organizationId/people',
+            '/organizations/:organizationId/achievements/create',
+            '/organizations/:organizationId/achievements/:achievementId',
+            '/organizations/:organizationId/achievements/:achievementId/edit',
+            '/organizations/:organizationId/people/create',
+            '/organizations/:organizationId/people/:userId',
+            '/organizations/:organizationId/people/:userId/edit',
         ],
         authenticatedRoutes = [
             '/user'

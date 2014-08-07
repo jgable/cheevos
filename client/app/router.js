@@ -10,22 +10,22 @@ Router.map(function () {
     this.route('forgotpassword/reset', { path: '/forgotpassword/reset/:resetKey' });
     this.route('user');
 
-    this.resource('organizations', function () {
-        this.resource('organization', { path: '/organizations/:organization_id' }, function () {
-            // Organizations contain achievements and people
-            this.resource('achievements', { path: '/organizations/:organization_id/achievements' }, function () {
-                this.route('addAchievement', { path: '/organizations/:organization_id/achievements/create' });
-                this.route('achievement', { path: '/organizations/:organization_id/achievements/:achievement_id' });
-                this.route('editAchievement', { path: '/organizations/:organization_id/achievements/:achievement_id/edit' });
-            });
-            this.resource('people', { path: '/organizations/:organization_id/people' }, function () {
-                this.route('addPerson', { path: '/organizations/:organization_id/people/create' });
-                this.route('person', { path: '/organizations/:organization_id/people/:person_id' });
-                this.route('editPerson', { path: '/organizations/:organization_id/people/:person_id/edit' });
-            });
+    this.route('organizations');
+    this.route('addOrganization', { path: '/organizations/create' });
 
-            this.route('addOrganization', { path: '/organizations/:organization_id/create' });
-            this.route('editOrganization', { path: '/organizations/:organization_id/edit' });
+    this.resource('organization', { path: '/organizations/:organization_id' }, function () {
+        this.route('editOrganization', { path: '/organizations/:organization_id/edit' });
+
+        // Organizations contain achievements and people
+        this.resource('achievements', { path: '/organizations/:organization_id/achievements' }, function () {
+            this.route('addAchievement', { path: '/organizations/:organization_id/achievements/create' });
+            this.route('achievement', { path: '/organizations/:organization_id/achievements/:achievement_id' });
+            this.route('editAchievement', { path: '/organizations/:organization_id/achievements/:achievement_id/edit' });
+        });
+        this.resource('people', { path: '/organizations/:organization_id/people' }, function () {
+            this.route('addPerson', { path: '/organizations/:organization_id/people/create' });
+            this.route('person', { path: '/organizations/:organization_id/people/:person_id' });
+            this.route('editPerson', { path: '/organizations/:organization_id/people/:person_id/edit' });
         });
     });
     

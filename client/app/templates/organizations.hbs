@@ -1,0 +1,20 @@
+
+<div class="row">
+	<!-- TODO: Make this a component -->
+	<form class="form organizations-new">
+		<label for="new-name">New Organization</label>
+		{{input id="new-name" value=newName placeholder="Organization Name"}}
+
+		{{input type="submit" class="btn btn-primary" value="Create" action=create}}
+	</form>
+</div>
+
+<div class="row">
+	{{#each organizations}}
+		{{#link-to "organization" this}}
+		<div class="col-md-4">
+			{{name}}
+		</div>
+		{{/link-to}}
+	{{/each}}
+</div>

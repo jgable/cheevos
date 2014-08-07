@@ -5,19 +5,16 @@ var User = require('./user'),
 
 // Setup relationships
 
-UserAchievement.hasOne(User, { as: 'Nominator' });
-UserAchievement.hasOne(User, { as: 'Accepter' });
+User.hasMany(Organization, { as: 'Organizations', through: 'UserOrganizations', foreignKey: 'userId' });
 
-User.hasMany(Organization, { as: 'Organizations' });
-User.hasMany(Achievement, {
-    as: 'Achievements',
-    through: UserAchievement
-});
+Organization.hasMany(Achievement, { as: 'Achievements', foreignKey: 'organizationId' });
+Organization.belongsTo(User, { as: 'Creator', foreignKey: 'creatorId' });
+Organization.hasMany(User, { as: 'People', through: 'UserOrganizations', foreignKey: 'organizationId' });
 
-Organization.hasMany(User, { as: 'People' });
-Organization.hasMany(Achievement, { as: 'Achievements' });
+Achievement.hasMany(UserAchievement, { as: 'Nominations', foreignKey: 'achievementId' });
 
-Achievement.hasOne(Organization);
+UserAchievement.belongsTo(User, { as: 'Nominator', foreignKey: 'nominatorId' });
+UserAchievement.belongsTo(User, { as: 'Accepter', foreignKey: 'accepterId' });
 
 // Export for usage
 
